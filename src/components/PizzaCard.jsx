@@ -1,59 +1,72 @@
-import { useState } from "react";
+import React, { useState } from "react";
 
+/**
+ * Компонент карточки пиццы.
+ * Отображает изображение, название, описание, цену, доступные размеры,
+ * а также позволяет выбрать размер и добавить пиццу в корзину.
+ *
+ * @param {Object} props - Свойства компонента
+ * @param {Object} props.pizza - Объект пиццы с данными
+ * @param {number} props.pizza.id - Уникальный идентификатор пиццы
+ * @param {string} props.pizza.name - Название пиццы
+ * @param {string} props.pizza.description - Описание пиццы
+ * @param {number} props.pizza.price - Цена пиццы
+ * @param {string} props.pizza.image - URL изображения пиццы
+ * @param {string} props.pizza.category - Категория пиццы
+ * @param {number[]} props.pizza.sizes - Массив доступных размеров
+ * @returns {JSX.Element} JSX-разметка карточки пиццы
+ */
 function PizzaCard({ pizza }) {
-  const [selectedSize, setSelectedSize] = useState(30);
+  const [selectedSize, setSelectedSize] = useState(null);
 
-  const handleSizeChange = (size) => setSelectedSize(size);
-
-  const getPriceForSize = (size) => {
-    switch (size) {
-      case 30: return pizza.price;
-      case 40: return pizza.price + 30;
-      case 50: return pizza.price + 60;
-      default: return pizza.price;
-    }
+  /**
+   * Обработчик выбора размера пиццы.
+   * Обновляет состояние выбранного размера.
+   *
+   * @param {number} size - Размер пиццы, выбранный пользователем
+   */
+  const handleSizeChange = (size) => {
+    setSelectedSize(size);
   };
 
   return (
     <div className="pizza-card">
       <img
-  src={pizza.image}
-  alt={pizza.name}
-  style={{
-    width: "250px",
-    height: "250px",
-    objectFit: "cover",
-    borderRadius: "12px"
-  }}
-/>
-
+        src={pizza.image}
+        alt={pizza.name}
+        style={{
+          width: "250px",
+          height: "250px",
+          objectFit: "cover",
+          borderRadius: "12px"
+        }}
+      />
       <h2>{pizza.name}</h2>
       <p>{pizza.description}</p>
-      <p>{getPriceForSize(selectedSize)} лей</p>
+      <p>{pizza.price} лей.</p>
+
       <div>
         {pizza.sizes.map((size) => (
           <button
             key={size}
             onClick={() => handleSizeChange(size)}
             style={{
-              fontWeight: selectedSize === size ? "bold" : "normal",
-              background: selectedSize === size ? "#ddd" : "#fff",
+              backgroundColor: selectedSize === size ? "#ffe066" : "#f0f0f0",
               color: "#000",
-              marginRight: "5px",
-              padding: "5px 10px"
+              margin: "0 5px",
+              padding: "5px 10px",
+              borderRadius: "8px",
+              cursor: "pointer"
             }}
           >
-            {size} см
+            {size} см.
           </button>
         ))}
       </div>
-      <button onClick={() => console.log(`Добавлено в корзину: ${pizza.name}, ${selectedSize} см`)}>
-        Добавить в корзину
-      </button>
+
+      <button>Добавить в корзину</button>
     </div>
-  )
-  ;
-  
+  );
 }
 
 export default PizzaCard;

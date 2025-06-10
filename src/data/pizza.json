@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "name": "Маргарита",
+    "description": "Соус, сыр, помидоры",
+    "price": 200,
+    "image": "https://avatars.dzeninfra.ru/get-zen_doc/271828/pub_6717d646b69e1a12d04329bb_6717d79bdc25453cb9ad7b1b/scale_1200",
+    "category": "Сырная",
+    "sizes": [30, 40, 50]
+  },
+  {
+    "id": 2,
+    "name": "Пепперони",
+    "description": "Соус, сыр, пепперони",
+    "price": 250,
+    "image": "https://avatars.mds.yandex.net/get-altay/13786585/2a00000194d22b2103756d67810027022649/XXL_height",
+    "category": "Мясная",
+    "sizes": [30, 40, 50]
+  },
+  {
+    "id": 3,
+    "name": "Четыре сыра",
+    "description": "Соус, моцарелла, горгонзола, пармезан",
+    "price": 300,
+    "image": "https://ostrovok-vkusnoy-edi.ru/thumb/2/w_jc_tPBEDVMAF7Kq1fSOA/r/d/4_srya.jpg",
+    "category": "Сырная",
+    "sizes": [30, 40, 50]
+  },
+  {
+    "id": 4,
+    "name": "Мясная классика",
+    "description": "Соус, сыр, ветчина, бекон",
+    "price": 320,
+    "image": "https://avatars.mds.yandex.net/i?id=139902a271a148b6790ca3a26dc75a21_l-6059293-images-thumbs&n=13",
+    "category": "Мясная",
+    "sizes": [30, 40, 50]
+  }
+]

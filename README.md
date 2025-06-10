@@ -58,3 +58,65 @@ npm run dev
 ```
 ![image](https://github.com/user-attachments/assets/e85d464a-f160-4185-9acf-f7335b8dc7c4)
 
+
+1.Что такое динамические маршруты и как их использовать?
+Динамические маршруты позволяют передавать параметры через URL.
+
+Пример объявления:
+
+```bash
+<Route path="/product/:id" element={<ProductPage />} />
+```
+
+Получение параметров в компоненте:
+
+```bash
+const { id } = useParams();
+```
+2.Как реализовать Layout-компоненты?
+Layout-компонент задаёт общую структуру сайта (навигация, футер и т.п.).
+
+Пример маршрутов с layout:
+
+```bash
+<Route path="/" element={<MainLayout />}>
+  <Route index element={<HomePage />} />
+  <Route path="cart" element={<CartPage />} />
+</Route>
+```
+
+Пример внутри MainLayout:
+
+```bash
+<Header />
+<Outlet />
+<Footer />
+  ```
+3.Какие методы проверки параметров маршрута можно использовать?
+useParams() — для получения значений из URL
+
+Проверка валидности ID (например, поиск по массиву)
+
+Перенаправление через useNavigate() при ошибке
+
+Использование loader() в расширенной конфигурации маршрутов
+
+Пример:
+
+```bash
+
+const { id } = useParams();
+const product = products.find((p) => p.id === Number(id));
+if (!product) navigate("/not-found");
+```
+
+4.Как настроить отображение страницы 404?
+Добавить маршрут с путём "*" — он будет ловить все неизвестные адреса.
+
+Пример:
+
+```bash
+
+<Route path="*" element={<NotFoundPage />} />
+
+```

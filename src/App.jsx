@@ -1,17 +1,21 @@
-import Header from "./components/Header";
-import Footer from "./components/Footer";
-import PizzaList from "./components/PizzaList";
-import Slider from "./components/Slider";
+import { Routes, Route } from "react-router-dom";
+import MainLayout from "./layouts/MainLayout";
+import HomePage from "./pages/HomePage";
+import AboutPage from "./pages/AboutPage";
+import CartPage from "./pages/CartPage";
+import ProductPage from "./pages/ProductPage";
+import NotFoundPage from "./pages/NotFoundPage";
 
-function App() {
+export default function App() {
   return (
-    <div className="App">
-      <Header />
-      <Slider />
-      <PizzaList />
-      <Footer />
-    </div>
+    <Routes>
+      <Route path="/" element={<MainLayout />}>
+        <Route index element={<HomePage />} />
+        <Route path="cart" element={<CartPage />} />
+        <Route path="about" element={<AboutPage />} />
+        <Route path="product/:id" element={<ProductPage />} />
+      </Route>
+      <Route path="*" element={<NotFoundPage />} />
+    </Routes>
   );
 }
-
-export default App;

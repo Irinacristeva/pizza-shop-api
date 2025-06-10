@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { CartContext } from "../contexts/CartContext";
 
 /**
  * Компонент карточки пиццы.
@@ -18,19 +19,19 @@ import React, { useState } from "react";
  */
 function PizzaCard({ pizza }) {
   const [selectedSize, setSelectedSize] = useState(null);
+  const { addToCart } = useContext(CartContext);
 
-  /**
-   * Обработчик выбора размера пиццы.
-   * Обновляет состояние выбранного размера.
-   *
-   * @param {number} size - Размер пиццы, выбранный пользователем
-   */
   const handleSizeChange = (size) => {
     setSelectedSize(size);
   };
 
+  const handleAddToCart = () => {
+    if (!selectedSize) return;
+    addToCart({ ...pizza, size: selectedSize });
+  };
+
   return (
-    <div className="pizza-card">
+    <div className="pizza-card" style={{ border: "1px solid #ccc", padding: "20px", borderRadius: "12px", margin: "10px", width: "280px" }}>
       <img
         src={pizza.image}
         alt={pizza.name}
@@ -43,9 +44,9 @@ function PizzaCard({ pizza }) {
       />
       <h2>{pizza.name}</h2>
       <p>{pizza.description}</p>
-      <p>{pizza.price} лей.</p>
+      <p><strong>{pizza.price} лей</strong></p>
 
-      <div>
+      <div style={{ marginBottom: "10px" }}>
         {pizza.sizes.map((size) => (
           <button
             key={size}
@@ -56,15 +57,29 @@ function PizzaCard({ pizza }) {
               margin: "0 5px",
               padding: "5px 10px",
               borderRadius: "8px",
+              border: "1px solid #ccc",
               cursor: "pointer"
             }}
           >
-            {size} см.
+            {size} см
           </button>
         ))}
       </div>
 
-      <button>Добавить в корзину</button>
+      <button
+        onClick={handleAddToCart}
+        disabled={!selectedSize}
+        style={{
+          backgroundColor: selectedSize ? "#ffcc00" : "#e0e0e0",
+          color: selectedSize ? "#000" : "#777",
+          padding: "10px 20px",
+          border: "none",
+          borderRadius: "8px",
+          cursor: selectedSize ? "pointer" : "not-allowed"
+        }}
+      >
+        Добавить в корзину
+      </button>
     </div>
   );
 }

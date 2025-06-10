@@ -1,8 +1,11 @@
+import React from 'react';
+
 function Footer() {
   return (
     <footer>
-      <p>&copy; 2025 Онлайн-пиццерия. <a href="https://github.com/your-repo">GitHub</a></p>
+      <p>&copy; 2025 Интернет-магазин Пиццы. Все права защищены.</p>
     </footer>
   );
 }
+
 export default Footer;

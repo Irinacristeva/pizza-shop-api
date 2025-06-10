@@ -30,7 +30,7 @@
 ### 📁 Структура проекта
 
 ```
-![image](https://github.com/user-attachments/assets/75b3defc-b68d-49cf-822b-7823a37060d7)
+![image](https://github.com/user-attachments/assets/a7504a47-dd58-4cfc-b886-c267396fee8a)
 
 ```
 

@@ -30,7 +30,21 @@
 ### 📁 Структура проекта
 
 ```
-![image](https://github.com/user-attachments/assets/a7504a47-dd58-4cfc-b886-c267396fee8a)
+src/
+├── components/
+│   ├── ProductList.jsx      # Список товаров
+│   ├── ProductForm.jsx      # Форма добавления пиццы
+│   ├── Cart.jsx             # Корзина
+│   └── PizzaCard.jsx        # Карточка пиццы с выбором размера
+├── contexts/
+│   └── CartContext.jsx      # Хранилище корзины (Context API)
+├── pages/
+│   ├── HomePage.jsx
+│   ├── CartPage.jsx
+│   └── AddProductPage.jsx
+├── layouts/
+│   └── MainLayout.jsx
+└── App.jsx
 
 ```
 

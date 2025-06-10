@@ -11,6 +11,8 @@ export default function MainLayout() {
 
       <main>
         <Outlet />
+
+        
       </main>
 
       <footer>

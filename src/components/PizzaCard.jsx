@@ -47,7 +47,7 @@ function PizzaCard({ pizza }) {
       <p><strong>{pizza.price} лей</strong></p>
 
       <div style={{ marginBottom: "10px" }}>
-        {pizza.sizes.map((size) => (
+        {(pizza.sizes || []).map((size) => (
           <button
             key={size}
             onClick={() => handleSizeChange(size)}

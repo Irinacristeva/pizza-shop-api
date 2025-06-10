@@ -5,6 +5,7 @@ import AboutPage from "./pages/AboutPage";
 import CartPage from "./pages/CartPage";
 import ProductPage from "./pages/ProductPage";
 import NotFoundPage from "./pages/NotFoundPage";
+import AddProductPage from "./pages/AddProductPage";
 
 export default function App() {
   return (
@@ -14,7 +15,9 @@ export default function App() {
         <Route path="cart" element={<CartPage />} />
         <Route path="about" element={<AboutPage />} />
         <Route path="product/:id" element={<ProductPage />} />
+        <Route path="add" element={<AddProductPage />} /> {/* <-- ЭТОТ маршрут */}
       </Route>
+
       <Route path="*" element={<NotFoundPage />} />
     </Routes>
   );

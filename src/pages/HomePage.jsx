@@ -1,10 +1,13 @@
-import PizzaList from "../components/PizzaList";
+import React from "react";
+import ProductList from "../components/ProductList";
 
-export default function HomePage() {
+const HomePage = () => {
   return (
     <div>
-      <h2>Добро пожаловать в наш магазин пиццы!</h2>
-      <PizzaList />
+      <h1>Добро пожаловать в Pizza Shop!</h1>
+      <ProductList />
     </div>
   );
-}
+};
+
+export default HomePage;

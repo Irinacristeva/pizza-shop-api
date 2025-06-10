@@ -1,12 +1,82 @@
-# React + Vite
+# Онлайн-пиццерия — React приложение
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Описание проекта
 
-Currently, two official plugins are available:
+Это простое React-приложение интернет-магазина пиццы, разработанное в рамках лабораторной работы по React с использованием хуков.  
+Пользователь может просматривать список пицц с изображениями, описаниями, выбирать размер пиццы, искать пиццы по названию и добавлять их в корзину (функционал корзины можно дополнить).  
+Приложение построено с использованием React, хуков `useState` и `useEffect`.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## Функциональные возможности
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- Отображение списка пицц с карточками (название, описание, цена, изображение, доступные размеры)  
+- Выбор размера пиццы с изменением визуального выделения выбранного размера  
+- Поиск пицц по названию  
+- Навигация (главная, меню, корзина) — можно дополнить маршрутизацией и функционалом корзины  
+- Адаптивный дизайн с одинаковым размером картинок и удобной версткой  
+
+---
+
+## Структура проекта
+
+/src
+/components
+Header.jsx # Заголовок и навигация
+Footer.jsx # Подвал сайта с копирайтом
+PizzaCard.jsx # Карточка пиццы
+PizzaList.jsx # Список пицц с загрузкой данных и поиском
+Search.jsx # Компонент поиска
+/data
+pizza.json # Мок-данные с информацией о пиццах
+App.jsx # Основной компонент приложения
+index.jsx # Точка входа в приложение
+
+
+## Как запустить проект
+
+1. Клонируйте репозиторий:
+
+```bash
+git clone https://github.com/yourusername/your-pizza-shop.git
+```
+Перейдите в папку проекта:
+
+```bash
+cd your-pizza-shop
+```
+Установите зависимости:
+
+```bash
+npm install
+```
+Запустите проект:
+
+```bash
+npm run dev
+```
+Откройте в браузере: http://localhost:3000 (или адрес, указанный в терминале)
+
+Используемые технологии
+React 18+
+
+Vite (для инициализации и разработки)
+
+JavaScript (ES6+)
+
+CSS (модули или глобальные стили)
+
+JSDoc (для документации компонентов)
+
+Документация компонентов
+Подробное описание компонентов и их функций можно найти в комментариях JSDoc внутри файлов /src/components/.
+
+Контрольные вопросы
+1.Как использовать useState для управления состоянием?
+useState позволяет добавить состояние в функциональные компоненты React. Возвращает текущий стейт и функцию для его обновления.
+
+2.Как работает useEffect?
+useEffect управляет побочными эффектами — выполняет код после рендера компонента, например загрузку данных или подписки. Может выполняться один раз или при изменении зависимостей.
+
+3.С помощью какого метода можно рендерить списки элементов в React?
+Используется метод .map() массива, который возвращает JSX для каждого элемента списка.
